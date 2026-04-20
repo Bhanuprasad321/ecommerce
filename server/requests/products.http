@@ -1,0 +1,38 @@
+### Create Product (need admin token)
+POST http://localhost:8000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3Mjk2ODA3MywiZXhwIjoxNzczNTcyODczfQ.IofgJYRAgGPc8Hlvb3ZWrjMh4-pnBTPBx6G4eTjspRY
+
+{
+  "name": "ASUS Vivobook n16x",
+  "description": "Best for students",
+  "price": 54000,
+  "category": "electronics",
+  "stock": 5
+}
+
+###
+PUT http://localhost:8000/api/products/69ab0d1d459257899907f7de
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3Mjk2ODA3MywiZXhwIjoxNzczNTcyODczfQ.IofgJYRAgGPc8Hlvb3ZWrjMh4-pnBTPBx6G4eTjspRY
+
+{
+  "price": 899,
+  "stock": 20
+}
+
+###
+PUT http://localhost:8000/api/products/69ad595e813ac335651b6f97
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3Mjk2ODA3MywiZXhwIjoxNzczNTcyODczfQ.IofgJYRAgGPc8Hlvb3ZWrjMh4-pnBTPBx6G4eTjspRY
+
+{
+  "name": "ASUS Vivobook 16x"
+}
+
+
+###
+GET http://localhost:8000/api/products/
+
+###
+GET http://localhost:8000/api/products/69ab0d1d459257899907f7de

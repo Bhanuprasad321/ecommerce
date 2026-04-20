@@ -1,0 +1,22 @@
+### Step 1 - Create order first
+POST http://localhost:8000/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3MzU3NTM2OSwiZXhwIjoxNzc0MTgwMTY5fQ.xPGH2CSrPjaisYUoUSt9oDJ6nmKahEiVD4LNlkdfG3I
+
+{
+  "shippingAddress": {
+    "street": "123 Main St",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zip": "500001"
+  }
+}
+
+### Step 2 - Initiate Payment
+POST http://localhost:8000/api/payment/initiate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3MzU3NTM2OSwiZXhwIjoxNzc0MTgwMTY5fQ.xPGH2CSrPjaisYUoUSt9oDJ6nmKahEiVD4LNlkdfG3I
+
+{
+  "orderId": "69b69d029e30485071fe015c"
+}

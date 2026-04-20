@@ -1,0 +1,34 @@
+### 1. Create Order (make sure cart has items first)
+POST http://localhost:8000/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+{
+  "shippingAddress": {
+    "street": "123 Main St",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zip": "500001"
+  }
+}
+
+### 2. Get My Orders
+GET http://localhost:8000/api/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+### 3. Get Order By Id
+GET http://localhost:8000/api/orders/69b68874ee86408eea4e4940
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+### 4. Get All Orders (admin only)
+GET http://localhost:8000/api/orders/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+### 5. Update Order Status (admin only)
+PUT http://localhost:8000/api/orders/69b68874ee86408eea4e4940
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+{
+  "orderStatus": "shipped"
+}

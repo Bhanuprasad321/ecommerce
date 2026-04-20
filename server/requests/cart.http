@@ -1,0 +1,24 @@
+GET http://localhost:8000/api/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3MzUwNzYzNywiZXhwIjoxNzc0MTEyNDM3fQ.g6Bm5znuQPRkeC8525_Voc7xhi4tYYOwW9bLQzqk6dU
+
+###
+POST http://localhost:8000/api/cart/69ab0d1d459257899907f7de
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+{
+  "quantity": 2
+} 
+
+###
+PUT http://localhost:8000/api/cart/69ab0d1d459257899907f7de
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3NTE5NTY4NywiZXhwIjoxNzc1ODAwNDg3fQ.tmyZZDUemNt1F_xFlxlf4pRCdP05gE1JsN9EQb9LfRA
+
+{ 
+    "quantity": 1
+}
+
+###
+DELETE http://localhost:8000/api/cart/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTZhMjc2ZTNmYWNkYTA1NjMxZmJmMSIsImlhdCI6MTc3MzU0OTc1MSwiZXhwIjoxNzc0MTU0NTUxfQ.e4FUMYGZfInA688muC9HN-t0A15vDNgq0Nm3q4u1BKo
