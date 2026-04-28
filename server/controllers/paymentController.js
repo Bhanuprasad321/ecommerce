@@ -10,7 +10,7 @@ const initiatePayment = async (req, res) => {
 
     // create unique transaction id
     const txnid = `TXN_${Date.now()}_${req.user._id}`;
-
+    await Order.findByIdAndUpdate(orderId, { stripePaymentId: txnid });
     // payment details
     const amount = order.totalAmount.toString();
     const productinfo = "E-Commerce Order";
@@ -63,14 +63,14 @@ const paymentSuccess = async (req, res) => {
       { paymentStatus: status === "success" ? "paid" : "failed" },
       { new: true },
     );
-
+    if (!order) {
+      return res.redirect(`${process.env.FRONTEND_URL}/orders`);
+    }
     // redirect to frontend
     if (status === "success") {
-      res.redirect(
-        `${process.env.FRONTEND_URL}/order-success?orderId=${order._id}`,
-      );
+      res.redirect(`${process.env.FRONTEND_URL}/orders`);
     } else {
-      res.redirect(`${process.env.FRONTEND_URL}/order-failed`);
+      res.redirect(`${process.env.FRONTEND_URL}/orders`);
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
