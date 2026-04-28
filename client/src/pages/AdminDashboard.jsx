@@ -240,7 +240,8 @@ const AdminDashboard = () => {
           )}
 
           {/* Products Table */}
-          <table className="w-full">
+          <div className="overflow-x-auto">
+      <table className="w-full min-w-[500px]">
             <thead className="bg-gray-50">
               <tr>
                 {["Name", "Price", "Category", "Stock", "Action"].map((h) => (
@@ -284,47 +285,49 @@ const AdminDashboard = () => {
                 </tr>
               ))}
             </tbody>
-          </table>
+      </table>
+    </div>
         </div>
       )}
 
       {/* ── Orders Tab ── */}
       {activeTab === "orders" && (
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <table className="w-full">
-            <thead className="bg-gray-50">
-              <tr>
-                {["Order ID", "User", "Amount", "Payment", "Status"].map(
-                  (h) => (
-                    <th
-                      key={h}
-                      className="text-left text-xs font-medium
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[600px]">
+              <thead className="bg-gray-50">
+                <tr>
+                  {["Order ID", "User", "Amount", "Payment", "Status"].map(
+                    (h) => (
+                      <th
+                        key={h}
+                        className="text-left text-xs font-medium
                                text-gray-500 px-4 py-3"
-                    >
-                      {h}
-                    </th>
-                  ),
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr
-                  key={order._id}
-                  className="border-t border-gray-100 hover:bg-gray-50"
-                >
-                  <td className="text-sm font-mono text-gray-900 px-4 py-3">
-                    #{order._id.slice(0, 8).toUpperCase()}
-                  </td>
-                  <td className="text-sm text-gray-700 px-4 py-3">
-                    {order.user?.name || "N/A"}
-                  </td>
-                  <td className="text-sm text-gray-700 px-4 py-3">
-                    ₹{order.totalAmount}
-                  </td>
-                  <td className="px-4 py-3">
-                    <span
-                      className={`text-xs font-medium px-2.5 py-1
+                      >
+                        {h}
+                      </th>
+                    ),
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map((order) => (
+                  <tr
+                    key={order._id}
+                    className="border-t border-gray-100 hover:bg-gray-50"
+                  >
+                    <td className="text-sm font-mono text-gray-900 px-4 py-3">
+                      #{order._id.slice(0, 8).toUpperCase()}
+                    </td>
+                    <td className="text-sm text-gray-700 px-4 py-3">
+                      {order.user?.name || "N/A"}
+                    </td>
+                    <td className="text-sm text-gray-700 px-4 py-3">
+                      ₹{order.totalAmount}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`text-xs font-medium px-2.5 py-1
                                       rounded-full
                       ${
                         order.paymentStatus === "paid"
@@ -333,30 +336,31 @@ const AdminDashboard = () => {
                             ? "bg-red-100 text-red-700"
                             : "bg-yellow-100 text-yellow-700"
                       }`}
-                    >
-                      {order.paymentStatus}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3">
-                    <select
-                      value={order.orderStatus}
-                      onChange={(e) =>
-                        handleUpdateOrderStatus(order._id, e.target.value)
-                      }
-                      className="border border-gray-300 rounded-lg
+                      >
+                        {order.paymentStatus}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <select
+                        value={order.orderStatus}
+                        onChange={(e) =>
+                          handleUpdateOrderStatus(order._id, e.target.value)
+                        }
+                        className="border border-gray-300 rounded-lg
                                  px-2 py-1 text-sm focus:outline-none
                                  focus:ring-2 focus:ring-indigo-500"
-                    >
-                      <option value="processing">Processing</option>
-                      <option value="shipped">Shipped</option>
-                      <option value="delivered">Delivered</option>
-                      <option value="cancelled">Cancelled</option>
-                    </select>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      >
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                      </select>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
