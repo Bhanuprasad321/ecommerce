@@ -48,8 +48,8 @@ const CheckoutPage = () => {
         firstname,
         email,
         hash,
-        surl: "https://xxxx.ngrok-free.app/api/payment/success",
-        furl: "https://xxxx.ngrok-free.app/api/payment/success",
+        surl: "https://ecommerce-backend-0gl4.onrender.com/api/payment/success",
+        furl: "https://ecommerce-backend-0gl4.onrender.com/api/payment/success",
       };
 
       Object.entries(fields).forEach(([name, value]) => {
